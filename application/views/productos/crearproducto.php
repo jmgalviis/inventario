@@ -1,7 +1,7 @@
 <?php 
     $formulario = array(
-        'name' => 'producto',
-        'id' => 'producto'
+        'name' => 'formproducto',
+        'id' => 'formproducto'
          );
     $enviar = array(
         'class' => 'btn btn-success btn-lg');

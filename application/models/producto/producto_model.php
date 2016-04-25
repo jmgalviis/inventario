@@ -12,8 +12,13 @@ class Producto_model extends CI_Model {
 				return $tipo->result();
 			}
 		}
-		function saveProducto(){
-
+		function saveProducto($form_data){
+			$this->db->insert('producto',$form_data);
+			if ($this->db->affected_rows() == 1) {
+				return TRUE;
+			} else {
+				return FALSE;
+			}
 		}
 }
 
