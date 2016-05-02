@@ -25,7 +25,7 @@ INSERT INTO `producto` (`cod_producto`,`nom_producto`,`des_producto`,`tipo_produ
 INSERT INTO `producto` (`cod_producto`,`nom_producto`,`des_producto`,`tipo_producto`) VALUES ('2302','REDDS COLD 330 CC X 24','CANASTA REDDS COLD TW',2);
 INSERT INTO `producto` (`cod_producto`,`nom_producto`,`des_producto`,`tipo_producto`) VALUES ('2514','POKER TW 330 CC X 24','CANASTA POKER TW',2);
 INSERT INTO `producto` (`cod_producto`,`nom_producto`,`des_producto`,`tipo_producto`) VALUES ('2637','PILSEN TW 330 CC X 24','CANASTA PILSEN TW',2);
-INSERT INTO `producto` (`cod_producto`,`nom_producto`,`des_producto`,`tipo_producto`) VALUES ('3205','MILLER GD TW 350 CC X 24','CANASTA MILLER GD TW',2)
+INSERT INTO `producto` (`cod_producto`,`nom_producto`,`des_producto`,`tipo_producto`) VALUES ('3205','MILLER GD TW 350 CC X 24','CANASTA MILLER GD TW',2);
 INSERT INTO `producto` (`cod_producto`,`nom_producto`,`des_producto`,`tipo_producto`) VALUES ('3753','CLUB COL TW 330 CC X 24 N','CANASTA CLUB COLOMBIA TW',2);
 INSERT INTO `producto` (`cod_producto`,`nom_producto`,`des_producto`,`tipo_producto`) VALUES ('3756','CLUB COL RJ TW 330 CC X 24 N','CANASTA CLUB COLOMBIA ROJA TW',2);
 INSERT INTO `producto` (`cod_producto`,`nom_producto`,`des_producto`,`tipo_producto`) VALUES ('3758','CLUB COL NG TW 330 CC X 24 N','CANASTA CLUB COLOMBIA NEGRA TW',2);

@@ -55,10 +55,7 @@
                         <a class="dropdown-toggle" href="#portfolio" data-toggle="dropdown">Compra<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         	<li>
-                        		<a href="">Comprobante de Compra</a>
-                        	</li>
-                        	<li>
-                        		<a href="">Reportes</a>
+                        		<a href="">Orden de Compra</a>
                         	</li>
                         </ul>
                     </li>
@@ -67,10 +64,7 @@
                         <a class="dropdown-toggle" href="#portfolio" data-toggle="dropdown">Almacen<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         	<li>
-                        		<a href="">Entrada y Salida</a>
-                        	</li>
-                        	<li>
-                        		<a href="">Kardex</a>
+                        		<a href="<?php echo base_url();?>inventario">Inventario</a>
                         	</li>
                         </ul>
                     </li>
@@ -85,13 +79,10 @@
                         		<a href="">Clientes</a>
                         	</li>
                         	<li>
-                        		<a href="">Productos</a>
+                        		<a href="<?php echo base_url();?>producto">Productos</a>
                         	</li>
                         	<li>
-                        		<a href="">Servicios</a>
-                        	</li>
-                        	<li>
-                        		<a href="">Empresa</a>
+                        		<a href="<?php echo base_url();?>empresa">Empresa</a>
                         	</li>
                         </ul>
                     </li>

@@ -20,6 +20,22 @@ class Producto_model extends CI_Model {
 				return FALSE;
 			}
 		}
+		function getProducto(){
+			$tipo= $this->db->get('producto');
+			if ($tipo->num_rows() > 0) {
+				return $tipo->result();
+			}
+		}
+
+		function updateProducto($id,$data){
+			$this->db->where('id_producto',$id);
+			$this->db->update('producto',$data);
+			if ($this->db->affected_rows () > 0) {
+				return TRUE;
+			} else {
+				return FALSE;
+			}
+		}
 }
 
 ?>
