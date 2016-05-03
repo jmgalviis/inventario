@@ -83,7 +83,23 @@ class Producto extends CI_Controller {
 
 		}
 		function deleteProducto(){
-			
+
+			if ($this->input->is_ajax_request()) {
+				$ideliminar = $this->input->post("id");
+				if ($this->producto_model->deletproducto($ideliminar) == TRUE) {
+					echo "Producto eliminado";
+				} else {
+					echo "Primero debe eliminar el producto del inventario";
+				}
+			} else { echo "es falso";}
+		}
+
+		function listarProductos(){
+			if ($this->input->is_ajax_request()) {
+				$buscar = $this->input->post('buscar');
+			$datos = $this->producto_model->likeProducto($buscar);
+			echo json_encode($datos);
+			} 
 		}
 }
 ?>

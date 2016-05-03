@@ -13,41 +13,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Inventario</h2>
+                    <h2>Productos</h2>
                     <hr class="star-primary">
                 </div>
             </div>
+             <div class="row">
+                <div class="col-lg-6 col-lg-offset-3">
+                    <div class="input-group">
+                        <input id="buscar" name="buscar" type="text" class="form-control" placeholder="Buscar..">
+                        <span class="input-group-btn">
+                            <button id="btnbuscar" name="btnbuscar" class="btn btn-primary" type="button">Mostrar Todos</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-lg-9 col-lg-offset-1">
                 	<div id="listaProductos" class="table-responsive">
-                		<table class="table table-hover">
-                			<thead>
-                				<th>#</th>
-                				<th>Código</th>
-                				<th>Producto</th>
-                				<th>Descripción</th>
-                				<th></th>
-                			</thead>
-                			<tbody>
-                				<?php foreach ($prod as $fila) {?>
-                					<tr>
-                						<td><?php echo $fila->id_producto; ?></td>
-                						<td><?php echo $fila->cod_producto; ?></td>
-                						<td><?php echo $fila->nom_producto; ?></td>
-                						<td><?php echo $fila->des_producto; ?></td>
-                                        <td><button data-toggle="modal" data-target="#actualizar" class="btn btn-success" value="<?php echo $fila->id_producto; ?>">Actualizar</button></td>
-                                        <?php $boton = $boton = array('id' => 'update', 
-                                                                      'name' => 'update',
-                                                                      'class' => 'btn btn-danger',
-                                                                      'href' => '#example'); ?>
-                                        <td><?php echo form_submit($boton,'Eliminar') ?></td>
-                					</tr>
-
-                				<?php } ?>
-                			</tbody>
-                		</table>
-
-
+           
                 	</div>
 
                 </div>
@@ -121,3 +104,17 @@
             </div>
         </div>
     </div>
+<!-- <?php foreach ($prod as $fila) {?>
+                                    <tr>
+                                        <td><?php echo $fila->id_producto; ?></td>
+                                        <td><?php echo $fila->cod_producto; ?></td>
+                                        <td><?php echo $fila->nom_producto; ?></td>
+                                        <td><?php echo $fila->des_producto; ?></td>
+                                        <td><button data-toggle="modal" data-target="#actualizar" class="btn btn-success" value="<?php echo $fila->id_producto; ?>">Actualizar</button></td>
+                                        
+                                        <td id="eliminar"><a class="btn btn-danger" href="<?php echo $fila->id_producto; ?>">Eliminar</a></td>
+                                    </tr>
+
+                                <?php } ?>
+                            </tbody>
+                        </table> -->

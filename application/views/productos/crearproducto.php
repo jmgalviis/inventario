@@ -14,6 +14,7 @@
                     <hr class="star-primary">
                 </div>
             </div>
+           
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <?php echo form_open("/producto/addProducto",$formulario) ?>

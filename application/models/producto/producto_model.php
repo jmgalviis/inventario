@@ -36,6 +36,23 @@ class Producto_model extends CI_Model {
 				return FALSE;
 			}
 		}
+
+		function deletproducto($id){
+
+				$this->db->where('id_producto', $id);
+				$this->db->delete('producto');
+				if ($this->db->affected_rows() > 0) {
+					return TRUE;
+				} else {
+					return FALSE;
+				}			
+		}
+
+		function likeProducto($texto){
+			$this->db->like('nom_producto',$texto);
+			$retorna = $this->db->get('producto');
+			return $retorna->result();
+		}
 }
 
 ?>
