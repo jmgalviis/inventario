@@ -23,8 +23,9 @@
                         <input id="buscar" name="buscar" type="text" class="form-control" placeholder="Buscar..">
                         <span class="input-group-btn">
                             <button id="btnbuscar" name="btnbuscar" class="btn btn-primary" type="button">Mostrar Todos</button>
+                            <a class="btn btn-warning" href="<?php echo base_url();?>producto/vistaAgregar">Agregar Producto</a>
                         </span>
-                    </div>
+                    </div>                   
                 </div>
             </div>
             <div class="row">
@@ -104,17 +105,3 @@
             </div>
         </div>
     </div>
-<!-- <?php foreach ($prod as $fila) {?>
-                                    <tr>
-                                        <td><?php echo $fila->id_producto; ?></td>
-                                        <td><?php echo $fila->cod_producto; ?></td>
-                                        <td><?php echo $fila->nom_producto; ?></td>
-                                        <td><?php echo $fila->des_producto; ?></td>
-                                        <td><button data-toggle="modal" data-target="#actualizar" class="btn btn-success" value="<?php echo $fila->id_producto; ?>">Actualizar</button></td>
-                                        
-                                        <td id="eliminar"><a class="btn btn-danger" href="<?php echo $fila->id_producto; ?>">Eliminar</a></td>
-                                    </tr>
-
-                                <?php } ?>
-                            </tbody>
-                        </table> -->

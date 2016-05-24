@@ -16,7 +16,8 @@
 
     <!-- Custom CSS -->
     <link href="<?php echo base_url(); ?>assets/css/freelancer.css" rel="stylesheet">
-
+    <link href="<?php echo base_url(); ?>assets/css/jquery-ui.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/jquery-ui.theme.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="<?php echo base_url(); ?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -76,7 +77,7 @@
                         		<a href="">Usuarios</a>
                         	</li>
                         	<li>
-                        		<a href="">Clientes</a>
+                        		<a href="<?php echo base_url();?>proveedor">Proveedores</a>
                         	</li>
                         	<li>
                         		<a href="<?php echo base_url();?>producto">Productos</a>

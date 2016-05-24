@@ -18,6 +18,13 @@ class Producto extends CI_Controller {
 			$this->load->view('productos/crearproducto',$data);
 			$this->load->view('footer');*/
 		}
+
+		function vistaAgregar(){
+			$data['tipo'] = $this->producto_model->getTipoProducto();
+			$this->load->view('header');
+			$this->load->view('productos/crearproducto',$data);
+			$this->load->view('footer');
+		}
 		function addProducto(){
 			$this->input->post();
 			$this->form_validation->set_rules('producto', 'Producto', 'required');
@@ -25,10 +32,11 @@ class Producto extends CI_Controller {
 			$this->form_validation->set_message('required','El %s es obligatorio');
 			$this->form_validation->set_message('is_natural_no_zero','El %s Solo números > 0');
 			if ($this->form_validation->run() == FALSE) {
-				$data['tipo'] = $this->producto_model->getTipoProducto();
+				$this->index();
+				/*$data['tipo'] = $this->producto_model->getTipoProducto();
 				$this->load->view('header');
 				$this->load->view('productos/crearproducto',$data);
-				$this->load->view('footer');
+				$this->load->view('footer');*/
 			} else {
 				$form_data = array('cod_producto' => set_value('codigo'),
 								   'nom_producto' => set_value('producto'),
@@ -36,7 +44,7 @@ class Producto extends CI_Controller {
 								   'tipo_producto' => set_value('tipo'));
 
 				if ($this->producto_model->saveProducto($form_data) == TRUE) {
-					echo "guardo";
+					echo $this->index();
 					
 				} else {
 					echo "no guardo";
@@ -70,13 +78,14 @@ class Producto extends CI_Controller {
 
 				if ($this->producto_model->updateProducto($id,$form_data) == TRUE) {
 					echo "El producto se actualizo correctamente";
-					
-				} else {
-					$data['prod'] = $this->producto_model->getProducto();
 					$data['tipo'] = $this->producto_model->getTipoProducto();
 					$this->load->view('header');
 					$this->load->view('productos/principal',$data);
 					$this->load->view('footer');
+					
+				} else {
+					$data['prod'] = $this->producto_model->getProducto();
+					
 				}
 				
 			}

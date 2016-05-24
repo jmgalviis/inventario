@@ -50,6 +50,7 @@
     <script src="<?php echo base_url(); ?>assets/js/inventario.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery-ui.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
