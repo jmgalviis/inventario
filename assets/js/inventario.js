@@ -5,6 +5,9 @@ function inicio () {
 	listarDatos("");
 	listaProducto("");
 	listarProveedor("");
+	pro = $("#bt").attr("value");
+	listaProducto("",pro);
+	listartmp("");
 
 	$("#buscar").keyup(function(){
 		param = $("#buscar").val();
@@ -25,7 +28,7 @@ function inicio () {
 		listarProveedor("");
 	});
 
-		//
+
 		$("body").on("click","#listaProductos button",function(event){
 		event.preventDefault();
 		id = $(this).attr("value");
@@ -42,18 +45,17 @@ function inicio () {
 		$("#btnactualizar").click(actualizar(url,dat,deci));		
 	});
 
-		$("body").on("click","#listar a",function(event){
+		$("body").on("click","#listar button",function(event){
 		event.preventDefault();
-		id = $(this).attr("href");
+		id = $(this).attr("value");
 		codigo = $(this).parent().parent().children("td:eq(1)").text();
 		nombre = $(this).parent().parent().children("td:eq(2)").text();
-		url = "http://localhost/inventario/orden/tmpsave";
-		dat = "'#formulario'";
-		deci = 1;
+		cantidad = $('#cant_'+id).val();
+		proved = $('#idprov').val();
 		$("#idproducto").val(id);
 		$("#codigo").val(codigo);
 		$("#producto").val(nombre);
-		$("#btnAdd").click(alert(id+" "+ codigo +" "+nombre));		
+		$("#btnAdd").click(guardarTmp(id,codigo,nombre,cantidad,proved));		
 	});
 
 		$("body").on("click","#listaProveedor button",function(event){
@@ -96,6 +98,15 @@ function inicio () {
 			deci = 2;
 			eliminar(id,urls,deci);
 		});
+
+		$("body").on("click","#listatmp a",function(event){
+			event.preventDefault();
+			id = $(this).attr("href");
+			urls = "http://localhost/inventario/orden/tmpelimina";
+			eliminartmp(id,urls);
+		});
+
+
 }
 
 function listarDatos(texto){
@@ -123,20 +134,22 @@ function listarDatos(texto){
 	});
 }
 
-function listaProducto(texto){
+function listaProducto(texto,provee){
 	$.ajax({
 		url:"http://localhost/inventario/producto/listarProductos",
 		type:"POST",
 		data:{buscar:texto},
 		success:function(devolver){
 			var registros = eval(devolver);
-			html = '<table class="table table-hover"><thead><th>#</th><th>Código</th><th>Producto</th><th></th></thead><tbody>';
+			var id = provee;
+			html = '<table class="table table-hover"><thead><th>#</th><th>Código</th><th>Producto</th><th>Cantidad</th><th></th></thead><tbody>';
             for (var i = 0; i < registros.length; i++) {
             	j = 1+i;
-            	html += '<tr><td>'+j+'</td>';
+            	html += '<tr><td>'+j+'<input value="'+id+'" name="idprov" id="idprov" type="hidden"></td>';
             	html +='<td>'+registros[i]['cod_producto']+'</td>';
             	html +='<td>'+registros[i]['nom_producto']+'</td>';
-            	html +='<td id="tmp"><a id="btnAdd" class="btn btn-success" href="'+registros[i]['id_producto']+'">+</a></td>';
+            	html +='<td class="col-lg-1"><input value="1" type="text" name="cant_'+registros[i]['id_producto']+'" id="cant_'+registros[i]['id_producto']+'" class="form-control"></td>';
+            	html +='<td id="tmp"><button id="btnAdd" class="btn btn-success" value="'+registros[i]['id_producto']+'">+</button></td>';
             	html +='</tr>'
 
             };
@@ -213,6 +226,52 @@ function listarProveedor(textos){
             htmls +='</tbody></table>';
             $('#listaProveedor').html(htmls);
 			
+		}
+	});
+}
+
+function guardarTmp(idp,codigop,nombrep,cantidadp,proveed){
+	$.ajax({
+		url:"http://localhost/inventario/orden/savetmp",
+		type:"POST",
+		data:{id:idp,codigo:codigop,nombre:nombrep,cantidad:cantidadp,idprov:proveed},
+		success:function(devuelve){
+			listartmp("");
+		}
+	});
+
+}
+
+function listartmp(texto,prove){
+	$.ajax({
+		url:"http://localhost/inventario/orden/temporal",
+		type:"POST",
+		data:{buscar:texto},
+		success:function(devuelve){
+			var registro = eval(devuelve);
+			htmls = '<table class="table table-hover"><thead><th>#</th><th>Código</th><th>Producto</th><th>Cantidad</th><th></th></thead><tbody>';
+			for (var i = 0; i < registro.length; i++) {
+            	j = 1+i;
+            	htmls += '<tr><td>'+j+'</td>';
+            	htmls +='<td>'+registro[i]['cod_producto']+'</td>';
+            	htmls +='<td>'+registro[i]['nom_producto']+'</td>';
+            	htmls +='<td >'+registro[i]['cantidad']+'</td>';
+            	htmls +='<td id="eliminartmp"><a class="btn btn-danger" href="'+registro[i]['id_producto']+'"><i class="glyphicon glyphicon-trash"></i></a></td></tr>';
+            };
+            htmls +='</tbody></table>';
+            $('#listatmp').html(htmls);
+		}
+	});
+}
+
+function eliminartmp(ideliminar,urls){
+	$.ajax({
+		url:urls,
+		type:"POST",
+		data:{id:ideliminar},
+		success:function(respuesta){
+			alert(respuesta);
+			listartmp("");			
 		}
 	});
 }

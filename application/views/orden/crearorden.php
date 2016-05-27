@@ -22,7 +22,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-4 controls">
                                 <label>Proveedor</label>
-                                <input type="hidden" value="<?php echo $fila->id_proveedor ?>">
+                                <input id="prove" name="prove" type="hidden" value="<?php echo $fila->id_proveedor ?>">
                                 <input id="proveedor" type="text" value="<?php echo $fila->nom_proveedor ?>" name="proveedor" class="form-control" disabled>
                                 <p class="help-block text-danger"><?php echo form_error('proveedor'); ?></p>
                             </div>
@@ -36,11 +36,17 @@
                                 <input id="direccion" type="text" value="<?php echo $fila->dir_proveedor?>" name="direccion" class="form-control" disabled>
                                 <p class="help-block text-danger"><?php echo form_error('direccion'); ?></p>
                             </div>
-                        </div><?php }?>
-                        <a data-toggle="modal" data-target="#actualizar" class="btn btn-success" value="">Agregar Productos</a>
+                        </div>
+                        <a id="bt" name="bt" data-toggle="modal" data-target="#actualizar" class="btn btn-success" value="<?php echo $fila->id_proveedor ?>">Agregar Productos</a><?php }?>
+                        <button id="savetmp" name="savetmp" class="btn btn-default"><i class="glyphicon glyphicon-floppy-save"></i>  Guardar</button>
                         <?php echo form_close() ?>
                         <hr>
                         <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="table-responsive" id="listatmp"></div>
                 </div>
             </div>
         </div>
@@ -59,7 +65,7 @@
                         <div class="modal-body">
                             <h2>Producto</h2>
                             <hr class="star-primary">
-                            <?php echo form_open("/orden/updateProducto",$formulario) ?>
+                            <?php echo form_open("/orden/savetmp",$formulario) ?>
                             <div id="listar" class="table-responsive">
                             </div>
 
