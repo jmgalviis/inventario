@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="footer-col col-md-4">
                         <h3>Encuentranos</h3>
-                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                        <p><br></p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Redes Sociales</h3>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Desarrollado por:</h3>
-                        <p> Start Bootstrap</a>.</p>
+                        <p> Sofia Sanchez</a>.</p>
                     </div>
                 </div>
             </div>

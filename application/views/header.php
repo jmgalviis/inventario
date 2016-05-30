@@ -56,7 +56,7 @@
                         <a class="dropdown-toggle" href="#portfolio" data-toggle="dropdown">Compra<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         	<li>
-                        		<a href="">Orden de Compra</a>
+                        		<a href="<?php echo base_url();?>orden/crearorden">Orden de Compra</a>
                         	</li>
                         </ul>
                     </li>
@@ -86,6 +86,9 @@
                         		<a href="<?php echo base_url();?>empresa">Empresa</a>
                         	</li>
                         </ul>
+                    </li>
+                    <li class="page-scroll dropdown">
+                        <a href="<?php echo base_url();?>auth/logout">Cerrar sesión</a>
                     </li>
                 </ul>
             </div>
